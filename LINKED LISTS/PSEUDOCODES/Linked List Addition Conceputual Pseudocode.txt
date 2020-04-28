@@ -1,0 +1,38 @@
+Linked List Addition Conceputual Pseudocode:
+
+Input Data (D)
+If FREE = Null 
+  Then
+    Output "Overflow"
+    End
+End If
+
+TempFree = FREE
+FREE = FREE.Next
+TempFree.Data = D
+
+If List1 = Null 
+  Then
+    List1 = TempFree
+    TempFree.Next = Null
+    End
+End If
+
+If List1 <> Null
+  Then
+    CN = List1
+    If (CN.Data < D) 
+      Then
+	While (CN.Next.Data < D) AND (CN.Next <> Null)
+            CN = CN.Next
+        End While
+
+        Temp2 = CN.Next
+        CN.Next = TempFree
+        TempFree.Next = Temp2
+      Else
+        Temp2 = List1
+        List1 = TempFree
+	TempFree.Next = Temp2
+      End If
+End If	  

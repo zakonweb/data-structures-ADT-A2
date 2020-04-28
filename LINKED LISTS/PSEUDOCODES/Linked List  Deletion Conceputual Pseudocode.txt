@@ -1,0 +1,26 @@
+Linked List Deletion Conceputual Pseudocode:
+
+Input Data (D)
+If List1 = Null 
+  Then
+    Output "Underflow"
+    End
+  Else
+    isDeleted = False
+    CN = List1
+    While (CN.Next.Data <> D) OR (CN.Next <> Null)
+        CN = CN.Next
+    End While
+
+    IF CN.Next <> Null
+      Then
+        Temp = CN.Next
+        CN.Next = CN.Next.Next
+        Temp2 = Free
+        Free = Temp
+        Free.Next = Temp2
+        isDeleted = True
+    End If
+    
+    IF IsDeleted = False Then Output "Data not Found."
+End If	  
