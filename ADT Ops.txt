@@ -1,0 +1,9 @@
+DATA STRUCTURE OPERATIONS:
+
+FIND		INSERT		DELETE
+----------	------------	-------------
+Linked List	Linked List	Linked List
+Binary Tree	Binary Tree	STACK
+Hash Table	Hash Table	QUEUE
+		STACK
+		QUEUE
