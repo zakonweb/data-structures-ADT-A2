@@ -1,4 +1,4 @@
-﻿Module BinaryTreeInsert
+﻿ Module BinaryTreeInsert
 
     'Binary Tree ADT
     Structure BT

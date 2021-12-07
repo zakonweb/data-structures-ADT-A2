@@ -41,7 +41,7 @@ PROCEDURE addNode(newItem : CHARACTER)
                  Tree[currNode].LeftPtr ← FreeNodePtr
 	         isAdded = True
                ELSE
-                 currPtr ← Tree[currNode].LeftPtr
+                 currNode ← Tree[currNode].LeftPtr
              ENDIF
          ELSE
            IF Tree[currPNode].RighPtr = -1
@@ -49,7 +49,7 @@ PROCEDURE addNode(newItem : CHARACTER)
                Tree[currNode].RightPtr ← FeeNodePtr
                isAdded = True
              ELSE
-               currPtr ← Tree[currNode].RightPtr
+               currNode ← Tree[currNode].RightPtr
              END IF
          END IF
       END WHILE
