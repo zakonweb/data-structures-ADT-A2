@@ -7,6 +7,8 @@ If FREE = Null
     End
 End If
 
+//Borrow a node from free list
+//And adding data to it.
 TempFree = FREE
 FREE = FREE.Next
 TempFree.Data = D
@@ -26,13 +28,8 @@ If List1 <> Null
 	While (CN.Next.Data < D) AND (CN.Next <> Null)
             CN = CN.Next
         End While
-
-        Temp2 = CN.Next
-        CN.Next = TempFree
-        TempFree.Next = Temp2
-      Else
-        Temp2 = List1
-        List1 = TempFree
-	TempFree.Next = Temp2
-      End If
+    End If
+    Temp2 = List1
+    List1 = TempFree
+    TempFree.Next = Temp2
 End If	  
