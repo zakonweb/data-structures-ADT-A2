@@ -21,10 +21,10 @@ END PROCEDURE
 PROCEDURE addNode(newItem : CHARACTER)
   DECLARE currNode : INTEGER
   DECLARE isAdded : BOOLEAN
-  currNode ← 0
+  currNode ← 0 //Root Node
   isAdded ← False
 
-  IF Tree[currNode].Data = ""
+  IF Tree[currNode].Data = ''
     THEN
       Tree[currNode].Data = newItem
       FreeNodePtr ← FreeNodePtr +1
