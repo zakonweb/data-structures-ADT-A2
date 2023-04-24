@@ -1,6 +1,6 @@
-DATA STRUCTURE OPERATIONS:
+DATA STRUCTURE OPERATIONS IN SYLLABUS:
 
-TRAVERSE	SERCHING	INSERT/ADD	DELETE
+TRAVERSE/READ	SERCHING	INSERT/ADD	DELETE
 ------------	------------	-------------	-----------
 Linked List	Linked List	Linked List	Linked List
 Binary Tree	Binary Tree	Binary Tree	STACK

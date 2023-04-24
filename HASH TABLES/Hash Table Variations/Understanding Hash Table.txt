@@ -1,11 +1,11 @@
 A hash table is a data structure that allows you to store and retrieve information quickly based on a key. It uses a special function, called a hashing function, to convert the key into an array index, where the associated data is stored. Hash tables can be visualized as arrays with a fixed number of slots.
 
 However, it's possible that two different keys produce the same index, known as a "collision." To handle collisions, we can use different techniques:
-1.	Chaining: Create a list for items that collide and store the list's starting point.
+1. Chaining: Create a list for items that collide and store the list's starting point.
 
-2.	Overflow areas (closed hashing): Store collided items in a separate area.
+2. Overflow areas (closed hashing): Store collided items in a separate area.
 
-3.	Neighboring slots (open hashing): Search for the nearest empty spot.
+3. Neighboring slots (open hashing): Search for the nearest empty spot.
 
 For example, let's create a simple hash table with 10 slots (indices 0-9) to store customer records using their unique customer IDs as keys. We'll use a hashing function index = customerID % 10 to calculate the array indices for customer IDs: 45876, 32390, 95312, 64636, 23467. The hash table initially looks like this: [0] [1] [2] [3] [4] [5] [6] [7] [8] [9]
 
