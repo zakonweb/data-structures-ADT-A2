@@ -1,5 +1,32 @@
 # data-structures-ADT-A2
-Algorithms and ADTs • binary search algorithm • conditions necessary for the use of a binary search • performance of a binary search • implement an insertion sort • implement a bubble sort • performance of a sort routine • find an item in : linked list, binary tree, hash table • insert an item: stack, queue, linked list, binary tree, hash table • delete an item from: stack, queue, linked list
+The Abstract Data Types (ADTs) Repository, curated by Zafar Ali Khan, is a powerful educational resource designed to help learners, educators, and developers of all levels deepen their understanding of ADTs. The repository covers a wide range of ADT operations, providing practical examples and detailed explanations in Pseudocode, VB.NET, Java, and Python. The materials cover essential concepts such as stacks, queues, linked lists, dictionaries, binary trees, and hash tables. With a focus on both Object-Oriented and Imperative Programming paradigms, the repository is a versatile tool to enhance your programming knowledge and skills.
+
+- `#AbstractDataTypes`
+- `#ADTs`
+- `#DataStructures`
+- `#Algorithms`
+- `#Pseudocode`
+- `#VBNET`
+- `#Java`
+- `#Python`
+- `#ObjectOrientedProgramming`
+- `#ImperativeProgramming`
+- `#ProgrammingEducation`
+- `#LearnToCode`
+- `#CodingResources`
+- `#Stacks`
+- `#Queues`
+- `#LinkedLists`
+- `#Dictionaries`
+- `#BinaryTrees`
+- `#HashTables`
+- `#Trees`
+- `#Graphs`
+- `#ComputationalThinking`
+- `#CodingKnowledge`
+- `#SoftwareDevelopment`
+- `#ComputerScience`
+- `#DataScience`
 # Abstract Data Types (ADTs) Repository by Zafar Ali Khan
 
 Welcome to the **Abstract Data Types (ADTs)** repository, curated by Zafar Ali Khan. This comprehensive and impactful resource is designed to help you master Abstract Data Types by providing implementations in Pseudocode, VB.NET, Java, and Python for all variations of each ADT. The repository is meticulously organized according to the ADT and its variations, and each variation contains source code and detailed explanations to facilitate your learning journey. Rest assured that all variations of each ADT have been covered in this repository.
