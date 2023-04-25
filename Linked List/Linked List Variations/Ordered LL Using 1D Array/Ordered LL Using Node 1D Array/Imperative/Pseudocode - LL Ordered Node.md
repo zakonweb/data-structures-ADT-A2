@@ -1,3 +1,4 @@
+```
 CONSTANT NULL_POINTER ← -1
 
 TYPE node 
@@ -7,7 +8,8 @@ END TYPE
 
 DECLARE head, tail, free : INTEGER
 DECLARE lst : ARRAY[0:9] OF node
-
+```
+```
 PROCEDURE init_free_list()
     free ← 0
     head ← NULL_POINTER
@@ -17,7 +19,8 @@ PROCEDURE init_free_list()
     NEXT i
     lst[9].next ← NULL_POINTER
 ENDPROCEDURE
-
+```
+```
 PROCEDURE add_list_item(item)
     IF free = NULL_POINTER THEN
         OUTPUT "List is full. Cannot add more items."
@@ -63,7 +66,8 @@ PROCEDURE add_list_item(item)
     lst[current].next ← free
     free ← temp
 ENDPROCEDURE
-
+```
+```
 PROCEDURE print_list()
     current ← head
     WHILE current != NULL_POINTER
@@ -71,7 +75,8 @@ PROCEDURE print_list()
         current ← lst[current].next
     ENDWHILE
 ENDPROCEDURE
-
+```
+```
 FUNCTION search_list_item(item) RETURNS INTEGER
     current ← head
     WHILE current != NULL_POINTER
@@ -82,7 +87,8 @@ FUNCTION search_list_item(item) RETURNS INTEGER
     ENDWHILE
     RETURN NULL_POINTER
 ENDPROCEDURE
-
+```
+```
 PROCEDURE print_array()
     OUTPUT "lst[] array:"
     OUTPUT "index  data  next"
@@ -93,7 +99,8 @@ PROCEDURE print_array()
     OUTPUT "tail = ", tail
     OUTPUT "free = ", free
 ENDPROCEDURE
-
+```
+```
 PROCEDURE delete_list_item(item)
     GLOBAL head, tail, free
 
@@ -139,7 +146,8 @@ PROCEDURE delete_list_item(item)
     free ← temp
     lst[free].data ← ''
 ENDPROCEDURE
-
+```
+```
 CALL init_free_list()
 DECLARE option : INTEGER
 option ← 0
@@ -175,3 +183,4 @@ WHILE option != 6
         OUTPUT "Invalid option"
     END IF
 END WHILE
+```

@@ -1,12 +1,15 @@
+```
 TYPE RECORD:
     DECLARE key: INTEGER
     DECLARE value: STRING
 END TYPE
-
+```
+```
 FUNCTION HashFunction(key: INTEGER, size: INTEGER) RETURNS INTEGER
     RETURN key MOD (size + 1)
 END FUNCTION
-
+```
+```
 SUB InsertHash(record: RECORD, hashTable[] : RECORD)
     DECLARE index : INTEGER 
     index ← HashFunction(record.key, hashTable[].LENGTH - 1)
@@ -19,7 +22,8 @@ SUB InsertHash(record: RECORD, hashTable[] : RECORD)
     ENDWHILE
     hashTable[index] ← record
 END SUB
-
+```
+```
 FUNCTION SearchHash(recordKey : INTEGER, hashTable[] : RECORD) RETURNS INTEGER
     DECLARE totSearches : INTEGER = 0
     DECLARE index : INTEGER 
@@ -44,7 +48,8 @@ FUNCTION SearchHash(recordKey : INTEGER, hashTable[] : RECORD) RETURNS INTEGER
         RETURN -1
     END IF
 END FUNCTION
-
+```
+```
 DECLARE recordKey, i : INTEGER
 DECLARE recordValue : STRING
 DECLARE record : RECORD
@@ -87,3 +92,4 @@ END IF
 FOR item ← 0 TO hashTable[].LENGTH
     OUTPUT hashTable[item].value
 NEXT
+```

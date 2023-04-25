@@ -1,3 +1,4 @@
+```
 DECLARE queue[9] : INTEGER
 DECLARE front : INTEGER
 DECLARE rear : INTEGER
@@ -31,7 +32,8 @@ WHILE TRUE
         OTHERWISE": OUTPUT "Invalid choice"
     END CASE
 END WHILE
-
+```
+```
 PROCEDURE Enqueue(data : INTEGER)
     ' Check if queue is full by checking if the rear pointer is one
     IF (rear + 1) MOD LENGTH[queue] = front THEN
@@ -48,7 +50,8 @@ PROCEDURE Enqueue(data : INTEGER)
         queue[rear] ← data
     ENDIF
 END PROCEDURE
-
+```
+```
 FUNCTION Dequeue() RETURNS INTEGER
     DECLARE data : INTEGER
     ' Check if queue is empty
@@ -71,7 +74,8 @@ FUNCTION Dequeue() RETURNS INTEGER
         RETURN data
     ENDIF
 END FUNCTION
-
+```
+```
 PROCEDURE Display()
     DECLARE i : INTEGER
     ' Check if queue is empty
@@ -103,3 +107,4 @@ PROCEDURE Display()
         ENDIF
     ENDIF
 END PROCEDURE
+```

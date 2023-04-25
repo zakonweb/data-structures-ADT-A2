@@ -1,3 +1,4 @@
+```
 DECLARE hashTable: ARRAY [0:10] OF INTEGER
 DECLARE i, recordKey, searchRecordKey, foundIndex AS INTEGER
 
@@ -20,7 +21,8 @@ ENDIF
 FOR i ← 0 TO LENGTH(hashTable) - 1
     OUTPUT hashTable[i]
 NEXT
-
+```
+```
 PROCEDURE InsertHash(recordKey, hashTable)
     DECLARE index AS INTEGER
     index ← CALL HashFunction(recordKey, LENGTH(hashTable) - 1)
@@ -35,7 +37,8 @@ PROCEDURE InsertHash(recordKey, hashTable)
     
     hashTable(index) ← recordKey
 ENDPROCEDURE
-
+```
+```
 FUNCTION SearchHash(recordKey, hashTable) RETURNS INTEGER
     DECLARE totalSearches, index AS INTEGER
     totalSearches ← 0
@@ -56,7 +59,9 @@ FUNCTION SearchHash(recordKey, hashTable) RETURNS INTEGER
     
     RETURN index
 ENDFUNCTION
-
+```
+```
 FUNCTION HashFunction(keyValue, maxPosition) RETURNS INTEGER
     RETURN keyValue MOD (maxPosition + 1)
 ENDFUNCTION
+```

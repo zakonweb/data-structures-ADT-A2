@@ -1,3 +1,4 @@
+```
 // Declare constants and variables
 CONSTANT NULL_POINTER = -1
 DECLARE TOP_OF_STACK: INTEGER
@@ -12,7 +13,8 @@ INPUT SIZE
 DECLARE STACK : ARRAY[0 : SIZE - 1] OF INTEGER
 FOR i ← 0 TO SIZE - 1 DO
     STACK[i] ← 0
-
+```
+```
 // Subroutine to push a value onto the stack
 PROCEDURE PUSH()
     // Prompt user for value to push onto the stack
@@ -26,7 +28,8 @@ PROCEDURE PUSH()
         STACK[TOP_OF_STACK] ← VALUE
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Subroutine to pop the top value from the stack
 PROCEDURE POP()
     // Pop the top value from the stack
@@ -39,7 +42,8 @@ PROCEDURE POP()
         OUTPUT "Popped value is " + VALUE
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Subroutine to display the stack as a list of values with the pointer at the top
 PROCEDURE DISPLAY()
     // Display the stack as a list of values with the pointer at the top
@@ -52,7 +56,8 @@ PROCEDURE DISPLAY()
         NEXT i
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Subroutine to display the entire stack array with the pointer value
 PROCEDURE DISPLAY_ARRAY()
     // Display the entire stack array with the pointer value
@@ -65,7 +70,8 @@ PROCEDURE DISPLAY_ARRAY()
         NEXT i
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Start menu loop
 WHILE TRUE DO
     // Print menu options and prompt user for choice
@@ -93,3 +99,4 @@ WHILE TRUE DO
         OUTPUT "Invalid choice. Try again."
     ENDIF
 ENDWHILE
+```

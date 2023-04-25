@@ -1,19 +1,18 @@
+```
 // Constants
 CONSTANT NULL_POINTER = -1
 CONSTANT MAX_TREE_SIZE = 7
 
 // Declare the Binary Tree
-DECLARE BinaryTree : ARRAY[1 : MAX_TREE_SIZE] OF Node
-
-// Define the Node data type
-DEFINE TYPE Node
-    Data : INTEGER
-    Left : INTEGER
-    Right : INTEGER
-ENDTYPE
+DECLARE Root : INTEGER
+DECLARE Data : ARRAY[1 : MAX_TREE_SIZE] OF INTEGER
+DECLARE Left : ARRAY[1 : MAX_TREE_SIZE] OF INTEGER
+DECLARE Right : ARRAY[1 : MAX_TREE_SIZE] OF INTEGER
 
 // Initialize the binary tree
 CALL InitializeTree()
+```
+```
 
 // Main program
 // Variables
@@ -59,7 +58,7 @@ REPEAT
             OUTPUT "Enter the item to search for:"
             INPUT SearchItem
             DECLARE RecursiveNodePointer : INTEGER
-            RecursiveNodePointer ← RecursiveSearch(BinaryTree[1], SearchItem)
+            RecursiveNodePointer ← RecursiveSearch(Root, SearchItem)
             IF RecursiveNodePointer = NULL_POINTER THEN
                 OUTPUT "Item not found."
             ELSE
@@ -68,17 +67,17 @@ REPEAT
 
         4: // In-order traversal
             OUTPUT "In-order traversal:"
-            InOrderTraversal(BinaryTree[1])
+            InOrderTraversal(Root)
             OUTPUT ""
 
         5: // Pre-order traversal
             OUTPUT "Pre-order traversal:"
-            PreOrderTraversal(BinaryTree[1])
+            PreOrderTraversal(Root)
             OUTPUT ""
 
         6: // Post-order traversal
             OUTPUT "Post-order traversal:"
-            PostOrderTraversal(BinaryTree[1])
+            PostOrderTraversal(Root)
             OUTPUT ""
 
         7: // Show Binary Tree Array Content
@@ -93,23 +92,26 @@ REPEAT
             OUTPUT "Exiting the program."
     ENDCASE
 UNTIL Choice = 9
-
+```
+```
 // Initialize the Binary Tree
 PROCEDURE InitializeTree
+    Root ← NULL_POINTER // Set start pointer
     FOR Index ← 1 TO MAX_TREE_SIZE // Initialize all nodes as empty
-        BinaryTree[Index].Data ← NULL_POINTER
-        BinaryTree[Index].Left ← NULL_POINTER
-        BinaryTree[Index].Right ← NULL_POINTER
+        Data[Index] ← NULL_POINTER
+        Left[Index] ← NULL_POINTER
+        Right[Index] ← NULL_POINTER
     NEXT Index
 ENDPROCEDURE
-
+```
+```
 // Insert a node into the tree
 PROCEDURE InsertNode(NewItem : INTEGER)
     // Find an empty slot in the binary tree array for the new node
     DECLARE NewNodePtr, ThisNodePtr, PreviousNodePtr : INTEGER
     NewNodePtr ← NULL_POINTER
     FOR Index ← 1 TO MAX_TREE_SIZE
-        IF BinaryTree[Index].Data = NULL_POINTER THEN
+        IF Data[Index] = NULL_POINTER THEN
             NewNodePtr ← Index
             EXIT FOR
         ENDIF
@@ -120,98 +122,117 @@ PROCEDURE InsertNode(NewItem : INTEGER)
         EXIT PROCEDURE
     ENDIF
 
-    // Check if empty tree
-    IF BinaryTree[1].Data = NULL_POINTER THEN // Insert new node at root
-        BinaryTree[1] ← NewNodePtr
-    ELSE // Find insertion point
-        // Store data item and set null pointers for the new node
-        BinaryTree[NewNodePtr].Data ← NewItem
-        BinaryTree[NewNodePtr].Left ← NULL_POINTER
-        BinaryTree[NewNodePtr].Right ← NULL_POINTER
+    // Store data item and set null pointers for the new node
+    Data[NewNodePtr] ← NewItem
+    Left[NewNodePtr] ← NULL_POINTER
+    Right[NewNodePtr] ← NULL_POINTER
 
-        ThisNodePtr ← BinaryTree[1] // Start at the root of the tree
+    // Check if empty tree
+    IF Root = NULL_POINTER THEN // Insert new node at root
+        Root ← NewNodePtr
+    ELSE // Find insertion point
+        ThisNodePtr ← Root // Start at the root of the tree
         WHILE ThisNodePtr <> NULL_POINTER DO // While not a leaf node
             PreviousNodePtr ← ThisNodePtr // Remember this node
-            IF NewItem < BinaryTree[ThisNodePtr].Data THEN // Follow left pointer
-                ThisNodePtr ← BinaryTree[ThisNodePtr].Left
+            IF NewItem < Data[ThisNodePtr] THEN // Follow left pointer
+                ThisNodePtr ← Left[ThisNodePtr]
             ELSE // Follow right pointer
-                ThisNodePtr ← BinaryTree[ThisNodePtr].Right
+                ThisNodePtr ← Right[ThisNodePtr]
             ENDIF
         ENDWHILE
 
-        IF NewItem < BinaryTree[PreviousNodePtr].Data THEN
-            BinaryTree[PreviousNodePtr].Left ← NewNodePtr
+        IF NewItem < Data[PreviousNodePtr] THEN
+            Left[PreviousNodePtr] ← NewNodePtr
         ELSE
-            BinaryTree[PreviousNodePtr].Right ← NewNodePtr
+            Right[PreviousNodePtr] ← NewNodePtr
         ENDIF
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Iteratively search for a node in the tree
 FUNCTION IterativeSearch(SearchItem : INTEGER) RETURNS INTEGER // Returns pointer to node
     DECLARE ThisNodePtr : INTEGER
-    ThisNodePtr ← BinaryTree[1]
-    WHILE ThisNodePtr <> NULL_POINTER AND BinaryTree[ThisNodePtr].Data <> SearchItem DO
-        IF SearchItem < BinaryTree[ThisNodePtr].Data THEN
-            ThisNodePtr ← BinaryTree[ThisNodePtr].Left
-        ELSE
-            ThisNodePtr ← BinaryTree[ThisNodePtr].Right
+    ThisNodePtr ← Root // Start at the root of the tree
+    WHILE ThisNodePtr <> NULL_POINTER AND Data[ThisNodePtr] <> SearchItem DO // While a pointer to follow and search item not found
+        IF SearchItem < Data[ThisNodePtr] THEN // Follow left pointer
+            ThisNodePtr ← Left[ThisNodePtr]
+        ELSE // Follow right pointer
+            ThisNodePtr ← Right[ThisNodePtr]
         ENDIF
     ENDWHILE
-    RETURN ThisNodePtr
+    RETURN ThisNodePtr // Returns null pointer if search item not found
 ENDFUNCTION
-
+```
+```
 // Recursively search for a node in the tree
 FUNCTION RecursiveSearch(NodePtr : INTEGER, SearchItem : INTEGER) RETURNS INTEGER
-    IF NodePtr = NULL_POINTER OR BinaryTree[NodePtr].Data = SearchItem THEN
+    IF NodePtr = NULL_POINTER OR Data[NodePtr] = SearchItem THEN
         RETURN NodePtr
-    ELSEIF SearchItem < BinaryTree[NodePtr].Data THEN
-        RETURN RecursiveSearch(BinaryTree[NodePtr].Left, SearchItem)
+    ELSEIF SearchItem < Data[NodePtr] THEN
+        RETURN RecursiveSearch(Left[NodePtr], SearchItem)
     ELSE
-        RETURN RecursiveSearch(BinaryTree[NodePtr].Right, SearchItem)
+        RETURN RecursiveSearch(Right[NodePtr], SearchItem)
     ENDIF
 ENDFUNCTION
-
+```
+```
 // In-order traversal subroutine: Performs an in-order traversal of the binary tree.
 // NodePtr: The node pointer to start the traversal from.
 PROCEDURE InOrderTraversal(NodePtr : INTEGER)
     IF NodePtr <> NULL_POINTER THEN
-        InOrderTraversal(BinaryTree[NodePtr].Left)
-        OUTPUT BinaryTree[NodePtr].Data
-        InOrderTraversal(BinaryTree[NodePtr].Right)
+        // Traverse the left subtree
+        InOrderTraversal(Left[NodePtr])
+        // Process the current node
+        OUTPUT Data[NodePtr]
+        // Traverse the right subtree
+        InOrderTraversal(Right[NodePtr])
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Pre-order traversal subroutine: Performs a pre-order traversal of the binary tree.
 // NodePtr: The node pointer to start the traversal from.
 PROCEDURE PreOrderTraversal(NodePtr : INTEGER)
     IF NodePtr <> NULL_POINTER THEN
-        OUTPUT BinaryTree[NodePtr].Data
-        PreOrderTraversal(BinaryTree[NodePtr].Left)
-        PreOrderTraversal(BinaryTree[NodePtr].Right)
+        // Process the current node
+        OUTPUT Data[NodePtr]
+        // Traverse the left subtree
+        PreOrderTraversal(Left[NodePtr])
+        // Traverse the right subtree
+        PreOrderTraversal(Right[NodePtr])
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Post-order traversal subroutine: Performs a post-order traversal of the binary tree.
 // NodePtr: The node pointer to start the traversal from.
 PROCEDURE PostOrderTraversal(NodePtr : INTEGER)
     IF NodePtr <> NULL_POINTER THEN
-        PostOrderTraversal(BinaryTree[NodePtr].Left)
-        PostOrderTraversal(BinaryTree[NodePtr].Right)
-        OUTPUT BinaryTree[NodePtr].Data
+        // Traverse the left subtree
+        PostOrderTraversal(Left[NodePtr])
+        // Traverse the right subtree
+        PostOrderTraversal(Right[NodePtr])
+        // Process the current node
+        OUTPUT Data[NodePtr]
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Show Binary Tree Array Content subroutine: Displays the contents of the binary tree array.
 PROCEDURE ShowBinaryTreeArray
     OUTPUT "Binary Tree Array Content:"
     OUTPUT "Index | Data | Left | Right"
     FOR Index ← 1 TO MAX_TREE_SIZE
-        OUTPUT Index, " | ", BinaryTree[Index].Data, " | ", BinaryTree[Index].Left, " | ", BinaryTree[Index].Right
+        OUTPUT Index, " | ", Data[Index], " | ", Left[Index], " | ", Right[Index]
     NEXT Index
 END PROCEDURE
-
+```
+```
 // Visualize Binary Tree with Edges subroutine: Displays the binary tree with edges.
+// '/' will be used to show the left child and '\' will be used to show the right child
+// First create a 2D array to store the tree and the edges
+// Then create a function to print the tree
 PROCEDURE VisualizeBinaryTreeWithEdges()
     // Initialize the Tree array with spaces
     FOR Index ← 1 TO MAX_TREE_SIZE
@@ -223,7 +244,8 @@ PROCEDURE VisualizeBinaryTreeWithEdges()
     // print the tree
     CALL PrintTree()
 ENDPROCEDURE
-
+```
+```
 // Function to print the tree
 PROCEDURE PrintTree()
     DECLARE CurrentLevel, StartIndex, EndIndex, Index : INTEGER
@@ -249,13 +271,15 @@ PROCEDURE PrintTree()
     NEXT Index
     OUTPUT "" // Start a new line
 ENDPROCEDURE
-
+```
+```
 // Function to visualize the tree
 PROCEDURE VisualizeTree(Node : INTEGER, Level : INTEGER, Position : INTEGER)
     IF Node = NULL_POINTER THEN
         EXIT PROCEDURE
     ENDIF
-    Tree[Position] ← Str(Node)
-    VisualizeTree(BinaryTree[Node].Left, Level + 1, Position - 2^(MAX_TREE_SIZE - Level - 2))
-    VisualizeTree(BinaryTree[Node].Right, Level + 1, Position + 2^(MAX_TREE_SIZE - Level - 2))
+    Tree[Position] ← Data[Node]
+    VisualizeTree(Left[Node], Level + 1, Position - 2^(MAX_TREE_SIZE - Level - 2))
+    VisualizeTree(Right[Node], Level + 1, Position + 2^(MAX_TREE_SIZE - Level - 2))
 ENDPROCEDURE
+```

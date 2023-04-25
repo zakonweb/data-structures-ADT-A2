@@ -1,3 +1,4 @@
+```
 //Setup a Stack ADT
 DECLARE stack : ARRAY [0:9] OF INTEGER
 DECLARE topPointer : INTEGER
@@ -7,7 +8,8 @@ DECLARE stackFull : INTEGER
 basePointer ← 0
 topPointer ← -1
 stackFull ← 9
-
+```
+```
 //Push an Item to stack
 PROCEDURE push(item : INTEGER)
 IF topPointer < stackFull
@@ -18,7 +20,8 @@ IF topPointer < stackFull
     OUTPUT "Overflow occurs, cannot PUSH.)"
 END IF
 END PROCEDURE
-
+```
+```
 //Pop an Item from Stack
 FUNCTION pop() : INTEGER
 IF topPointer = basePointer -1
@@ -31,3 +34,4 @@ IF topPointer = basePointer -1
 ENDIF
 RETURN item
 END FUNCTION
+```

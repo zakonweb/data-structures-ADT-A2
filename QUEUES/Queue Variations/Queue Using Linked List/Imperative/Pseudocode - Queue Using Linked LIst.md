@@ -1,8 +1,10 @@
+```
 TYPE Node
     DECLARE Data : Integer
     DECLAER NextPointer : Integer
 END TYPE
-
+```
+```
 CONSTANT MAX ← 10
 CONSTANT NULL_POINTER ← -1
 
@@ -11,14 +13,16 @@ QueueRear ← NULL_POINTER
 FreeListHead ← 0
 
 DECLARE NodeList: ARRAY [0:MAX] OF Node
-
+```
+```
 PROCEDURE InitializeNodes()
     FOR i ← 0 TO MAX - 2 DO
         NodeList[i].NextPointer ← i + 1
     NEXT
     NodeList[MAX - 1].NextPointer ← NULL_POINTER
 END PROCEDURE
-
+```
+```
 PROCEDURE Enqueue(Data : Integer)
     IF FreeListHead = NULL_POINTER THEN
         OUTPUT "Queue is full"
@@ -38,7 +42,8 @@ PROCEDURE Enqueue(Data : Integer)
         ENDIF
     ENDIF
 END PROCEDURE
-
+```
+```
 FUNCTION Dequeue() RETURNS Integer
     IF QueueFront = NULL_POINTER THEN
         OUTPUT "Queue is empty"
@@ -57,7 +62,8 @@ FUNCTION Dequeue() RETURNS Integer
         RETURN NodeList[OldFrontIndex].Data
     ENDIF
 END FUNCTION
-
+```
+```
 PROCEDURE Display()
     Size ← 0
     IF QueueFront = NULL_POINTER THEN
@@ -84,7 +90,8 @@ PROCEDURE Display()
         OUTPUT "" //NEWLINE
     ENDIF
 END PROCEDURE
-
+```
+```
 // Main section
 CALL InitializeNodes()
 
@@ -114,3 +121,4 @@ WHILE TRUE
             OUTPUT "Invalid choice"
     ENDCASE
 ENDWHILE
+```

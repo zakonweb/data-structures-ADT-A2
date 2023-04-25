@@ -1,3 +1,4 @@
+```
 //SETUP BINARY TREE
 RECORD bTreeNode
   DECLARE LeftPtr : INTEGER
@@ -7,7 +8,8 @@ END RECORD
 
 DECLARE FreeNodePtr : INTEGER
 DECLARE Tree : ARRAY [0:9] OF bTreeNode
-
+```
+```
 PROCEDURE initialiseTree
   DECLARE i : INTEGER
   FreeNodePtr ← 0
@@ -17,7 +19,8 @@ PROCEDURE initialiseTree
     Tree[i].RightPtr ← -1
   NEXT 
 END PROCEDURE
-
+```
+```
 PROCEDURE addNode(newItem : CHARACTER)
   DECLARE currNode : INTEGER
   DECLARE isAdded : BOOLEAN
@@ -56,11 +59,4 @@ PROCEDURE addNode(newItem : CHARACTER)
       FreeNodePtr ← FreeNodePtr +1
   END IF
 END PROCEDURE
-      
-
-
-
-
-
-
-      
+```

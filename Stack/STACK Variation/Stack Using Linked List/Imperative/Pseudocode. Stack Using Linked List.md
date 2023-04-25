@@ -1,3 +1,4 @@
+```
 TYPE Node
     data : INTEGER
     pointer : INTEGER
@@ -11,7 +12,8 @@ DECLARE topOfStack : INTEGER
 DECLARE head : INTEGER
 DECLARE free : INTEGER
 DECLARE stack : ARRAY[0 TO MAX-1] OF Node
-
+```
+```
 PROCEDURE Main()
     CALL InitializeStack()
 
@@ -50,7 +52,8 @@ PROCEDURE Main()
         END CASE
     END WHILE
 END PROCEDURE
-
+```
+```
 PROCEDURE InitializeStack()
     topOfStack ← NULL_POINTER
     head ← NULL_POINTER
@@ -63,7 +66,8 @@ PROCEDURE InitializeStack()
 
     stack[MAX - 1].pointer ← NULL_POINTER
 END PROCEDURE
-
+```
+```
 PROCEDURE Push(data : INTEGER)
     DECLARE temp : INTEGER 
     temp ← free
@@ -81,7 +85,8 @@ PROCEDURE Push(data : INTEGER)
         ENDIF
     ENDIF
 END PROCEDURE
-
+```
+```
 FUNCTION Pop() RETURNS INTEGER
     DECLARE val : INTEGER
     DECLARE temp : INTEGER 
@@ -104,7 +109,8 @@ FUNCTION Pop() RETURNS INTEGER
         RETURN val
     ENDIF
 END FUNCTION
-
+```
+```
 PROCEDURE DisplayStack()
     DECLARE temp : INTEGER 
     temp ← topOfStack
@@ -122,7 +128,8 @@ PROCEDURE DisplayStack()
         END WHILE
     ENDIF
 END PROCEDURE
-
+```
+```
 PROCEDURE DisplayArray()
     OUTPUT "index" & " data" & " next"
     FOR i ← 0 TO MAX - 1
@@ -142,3 +149,4 @@ PROCEDURE DisplayArray()
     OUTPUT "head: " & head
     OUTPUT "free: " & free
 END PROCEDURE
+```

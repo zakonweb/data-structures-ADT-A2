@@ -1,3 +1,4 @@
+```
 //Queue ADT
 //Circular Q.
 
@@ -14,7 +15,8 @@ frontP ← 0
 FOR i ← 0 TO 4
     Q[i] ← NONE
 NEXT i
-
+```
+```
 // INSERT AN ITEM, Enqueue
 PROCEDURE EnQ(arr[], item : INTEGER)
   IF Qlen < Qfull
@@ -32,7 +34,8 @@ PROCEDURE EnQ(arr[], item : INTEGER)
       OUTPUT "Overflow error, item cannot be added."
   END IF
 END PROCEDURE
-
+```
+```
 // DELETE AN ITEM, DEQUEUE
 FUNCTION DeQ(arr[]) : INETEGER
   DECLARE item : INTEGER
@@ -54,3 +57,4 @@ FUNCTION DeQ(arr[]) : INETEGER
       RETURN -1
   END IF
 END FUNCTION
+```

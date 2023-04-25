@@ -1,3 +1,4 @@
+```
 // Constants
 CONSTANT NULL_POINTER = -1
 CONSTANT MAX_TREE_SIZE = 7
@@ -13,7 +14,8 @@ ENDTYPE
 DECLARE Root : INTEGER
 DECLARE FreePointer : INTEGER
 DECLARE BinaryTree : ARRAY[0 : MAX_TREE_SIZE] OF TreeNode
-
+```
+```
 // Main program
 // Variables
 ECLARE Choice : INTEGER
@@ -91,8 +93,8 @@ REPEAT
 
    ENDCASE
 UNTIL Choice = 8
-
-
+```
+```
 // Initialise the Binary Tree
 PROCEDURE InitializeTree
     Root ← NULL_POINTER // set start pointer
@@ -102,7 +104,8 @@ PROCEDURE InitializeTree
     NEXT Index
     BinaryTree[MAX_TREE_SIZE-1].LeftChild ← NULL_POINTER // last node of free list
 ENDPROCEDURE
-
+```
+```
 // Insert a node into the tree
 PROCEDURE InsertNode(NewItem : STRING)
     IF FreePointer <> NULL_POINTER
@@ -144,7 +147,8 @@ PROCEDURE InsertNode(NewItem : STRING)
         OUTPUT "Error: Binary tree is full. Cannot insert a new item."
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Iteratively search for a node in the tree
 FUNCTION IterativeSearch(SearchItem : STRING) RETURNS INTEGER // returns pointer to node
     THIS_NODE_PTR ← Root // start at the root of the tree
@@ -159,7 +163,8 @@ FUNCTION IterativeSearch(SearchItem : STRING) RETURNS INTEGER // returns pointer
     ENDWHILE
     RETURN THIS_NODE_PTR // will return null pointer if search item not found
 ENDFUNCTION
-
+```
+```
 // Recursively search for a node in the tree
 FUNCTION RecursiveSearch(NodePtr : INTEGER, SearchItem : STRING) RETURNS INTEGER
     IF NodePtr = NULL_POINTER OR BinaryTree[NodePtr].Data = SearchItem
@@ -172,7 +177,8 @@ FUNCTION RecursiveSearch(NodePtr : INTEGER, SearchItem : STRING) RETURNS INTEGER
         RETURN RecursiveSearch(BinaryTree[NodePtr].RightChild, SearchItem)
     ENDIF
 ENDFUNCTION
-
+```
+```
 // InOrderTraversal subroutine: Performs an in-order traversal of the binary tree.
 // NodePtr: The node pointer to start the traversal from.
 PROCEDURE InOrderTraversal(NodePtr : INTEGER)
@@ -185,7 +191,8 @@ PROCEDURE InOrderTraversal(NodePtr : INTEGER)
         InOrderTraversal(BinaryTree[NodePtr].RightChild)
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // PreOrderTraversal subroutine: Performs a pre-order traversal of the binary tree.
 // NodePtr: The node pointer to start the traversal from.
 PROCEDURE PreOrderTraversal(NodePtr : INTEGER)
@@ -198,7 +205,8 @@ PROCEDURE PreOrderTraversal(NodePtr : INTEGER)
         PreOrderTraversal(BinaryTree[NodePtr].RightChild)
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // PostOrderTraversal subroutine: Performs a post-order traversal of the binary tree.
 // NodePtr: The node pointer to start the traversal from.
 PROCEDURE PostOrderTraversal(NodePtr : INTEGER)
@@ -211,7 +219,8 @@ PROCEDURE PostOrderTraversal(NodePtr : INTEGER)
         OUTPUT BinaryTree[NodePtr].Data
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Subroutine to show the content of the binary tree array
 PROCEDURE ShowBinaryTreeArray()
     OUTPUT "Root:", Root
@@ -221,3 +230,4 @@ PROCEDURE ShowBinaryTreeArray()
         OUTPUT "Index:", Index, " Left Child:", BinaryTree[Index].LeftChild, " Data:", BinaryTree[Index].Data, " Right Child:", BinaryTree[Index].RightChild
     NEXT Index
 ENDPROCEDURE
+```
