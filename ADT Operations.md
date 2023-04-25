@@ -1,9 +1,9 @@
-DATA STRUCTURE OPERATIONS IN SYLLABUS:
+## Data Structure Operations in Syllabus
 
-TRAVERSE/READ	SERCHING	INSERT/ADD	DELETE
-------------	------------	-------------	-----------
-Linked List	Linked List	Linked List	Linked List
-Binary Tree	Binary Tree	Binary Tree	STACK
-		Hash Table	Hash Table	QUEUE
-				STACK
-				QUEUE
+| Traversal/Read | Searching  | Insertion/Add | Deletion |
+| :-----------: | :--------: | :-----------: | :------: |
+| Linked List   | Linked List| Linked List   | Linked List |
+| Binary Tree   | Binary Tree| Binary Tree   | Stack   |
+|		| Hash Table | Hash Table    | Queue    |
+|               |            | Stack         |          |
+|               |            | Queue         |          |
