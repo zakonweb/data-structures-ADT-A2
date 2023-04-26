@@ -1,4 +1,4 @@
-#data-structures-ADT-A2
+# data-structures-ADT-A2
 The Abstract Data Types (ADTs) Repository, curated by Zafar Ali Khan, is a powerful educational resource designed to help learners, educators, and developers of all levels deepen their understanding of ADTs. The repository covers a wide range of ADT operations, providing practical examples and detailed explanations in Pseudocode, VB.NET, Java, and Python. The materials cover essential concepts such as stacks, queues, linked lists, dictionaries, binary trees, and hash tables. With a focus on both Object-Oriented and Imperative Programming paradigms, the repository is a versatile tool to enhance your programming knowledge and skills.
 
 - `#AbstractDataTypes`
