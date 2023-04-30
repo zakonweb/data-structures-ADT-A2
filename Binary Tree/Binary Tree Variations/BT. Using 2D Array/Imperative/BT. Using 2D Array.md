@@ -1,3 +1,4 @@
+```
 // Constants
 CONSTANT NULL_POINTER = -1
 CONSTANT MAX_TREE_SIZE = 7
@@ -6,10 +7,14 @@ CONSTANT MAX_TREE_SIZE = 7
 DECLARE Root : INTEGER
 DECLARE BinaryTree : ARRAY[1 : MAX_TREE_SIZE, 1 : 3] OF INTEGER
 
+// Create a 2D array to store the tree and the edges
+DECLARE Tree : ARRAY[1 : MAX_TREE_SIZE, 1 : (2^MAX_TREE_SIZE)] OF CHARACTER
+```
+```
+// Main program
 // Initialize the binary tree
 CALL InitializeTree()
 
-// Main program
 // Variables
 DECLARE Choice : INTEGER
 DECLARE SearchItem, NewItem : INTEGER
@@ -87,7 +92,8 @@ REPEAT
             OUTPUT "Exiting the program."
     ENDCASE
 UNTIL Choice = 9
-
+```
+```
 // Initialize the Binary Tree
 PROCEDURE InitializeTree
     Root ← NULL_POINTER // Set start pointer
@@ -97,8 +103,8 @@ PROCEDURE InitializeTree
         BinaryTree[Index, 3] ← NULL_POINTER
     NEXT Index
 ENDPROCEDURE
-
-
+```
+```
 // Insert a node into the tree
 PROCEDURE InsertNode(NewItem : INTEGER)
     // Find an empty slot in the binary tree array for the new node
@@ -142,7 +148,8 @@ PROCEDURE InsertNode(NewItem : INTEGER)
         ENDIF
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Iteratively search for a node in the tree
 FUNCTION IterativeSearch(SearchItem : INTEGER) RETURNS INTEGER // Returns pointer to node
     DECLARE ThisNodePtr : INTEGER
@@ -156,7 +163,8 @@ FUNCTION IterativeSearch(SearchItem : INTEGER) RETURNS INTEGER // Returns pointe
     ENDWHILE
     RETURN ThisNodePtr // Returns null pointer if search item not found
 ENDFUNCTION
-
+```
+```
 // Recursively search for a node in the tree
 FUNCTION RecursiveSearch(NodePtr : INTEGER, SearchItem : INTEGER) RETURNS INTEGER
     IF NodePtr = NULL_POINTER OR BinaryTree[NodePtr, 1] = SearchItem THEN
@@ -167,7 +175,8 @@ FUNCTION RecursiveSearch(NodePtr : INTEGER, SearchItem : INTEGER) RETURNS INTEGE
         RETURN RecursiveSearch(BinaryTree[NodePtr, 3], SearchItem)
     ENDIF
 ENDFUNCTION
-
+```
+```
 // In-order traversal subroutine: Performs an in-order traversal of the binary tree.
 // NodePtr: The node pointer to start the traversal from.
 PROCEDURE InOrderTraversal(NodePtr : INTEGER)
@@ -180,7 +189,8 @@ PROCEDURE InOrderTraversal(NodePtr : INTEGER)
         InOrderTraversal(BinaryTree[NodePtr, 3])
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Pre-order traversal subroutine: Performs a pre-order traversal of the binary tree.
 // NodePtr: The node pointer to start the traversal from.
 PROCEDURE PreOrderTraversal(NodePtr : INTEGER)
@@ -193,7 +203,8 @@ PROCEDURE PreOrderTraversal(NodePtr : INTEGER)
         PreOrderTraversal(BinaryTree[NodePtr, 3])
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Post-order traversal subroutine: Performs a post-order traversal of the binary tree.
 // NodePtr: The node pointer to start the traversal from.
 PROCEDURE PostOrderTraversal(NodePtr : INTEGER)
@@ -206,7 +217,8 @@ PROCEDURE PostOrderTraversal(NodePtr : INTEGER)
         OUTPUT BinaryTree[NodePtr, 1]
     ENDIF
 ENDPROCEDURE
-
+```
+```
 // Subroutine to show the content of the binary tree array
 PROCEDURE ShowBinaryTreeArray()
     OUTPUT "Binary Tree Array Content:"
@@ -218,10 +230,8 @@ PROCEDURE ShowBinaryTreeArray()
         ENDIF
     NEXT Index
 ENDPROCEDURE
-
-// Create a 2D array to store the tree and the edges
-DECLARE Tree : ARRAY[1 : MAX_TREE_SIZE, 1 : (2^MAX_TREE_SIZE)] OF CHARACTER
-
+```
+```
 // Function to visualize the binary tree with edges
 // '/' will be used to show the left child and '\' will be used to show the right child
 // First create a 2D array to store the tree and the edges
@@ -239,7 +249,8 @@ PROCEDURE VisualizeBinaryTreeWithEdges()
     // print the tree
     CALL PrintTree(tree)
 END PROCEDURE
-
+```
+```
 // Function to print the tree
 PROCEDURE PrintTree()
     FOR RowIndex ← 1 TO MAX_TREE_SIZE
@@ -250,7 +261,8 @@ PROCEDURE PrintTree()
         OUTPUT RowAsString
     NEXT RowIndex
 ENDPROCEDURE
-
+```
+```
 // Function to visualize the tree
 PROCEDURE VisualizeTree(Node : INTEGER, Level : INTEGER, Position : INTEGER)
     IF Node = NULL_POINTER THEN
@@ -260,4 +272,4 @@ PROCEDURE VisualizeTree(Node : INTEGER, Level : INTEGER, Position : INTEGER)
     VisualizeTree(BinaryTree[Node, 2], Level + 1, Position - 2^(MAX_TREE_SIZE - Level - 2))
     VisualizeTree(BinaryTree[Node, 3], Level + 1, Position + 2^(MAX_TREE_SIZE - Level - 2))
 ENDPROCEDURE
-
+```
