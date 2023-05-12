@@ -43,7 +43,7 @@ class LinkedList:
             node.next = Node(data, node.next)
 ```
 
-This LinkedList class has an insert_in_order method that inserts new nodes in the correct order based on their data.
+This `LinkedList` class has an `insert_in_order` method that inserts new nodes in the correct order based on their data.
 
 **In Advanced Level (AL) Computer Science, all codes involving linked lists are written for ordered linked lists.**
 
@@ -63,10 +63,10 @@ class LinkedList:
         self.head = Node(data, self.head)
 ```
 
-In this code, we have the same Node class representing each clue. But this time, our LinkedList class is a bit different. We add new clues at the start of the list using the insert_at_start method. So, the output of our print_list method will be in the reverse order of insertion.
+In this code, we have the same `Node` class representing each clue. But this time, our `LinkedList` class is a bit different. We add new clues at the start of the list using the `insert_at_start` method. So, the output of our `print_list` method will be in the reverse order of insertion.
 
 ## Summary
-In summary, linked lists are like a game of treasure hunt. Each node is a clue, and the 'next' reference in each node is like the directions to the next clue. An ordered linked list is a well-organized game where all clues are arranged in a specific order. In contrast, an unordered linked list is a more chaotic game where clues can be anywhere, and there's no specific order to follow.
+In summary, linked lists are like a game of treasure hunt. Each node is a clue, and the `next` reference in each node is like the directions to the next clue. An ordered linked list is a well-organized game where all clues are arranged in a specific order. In contrast, an unordered linked list is a more chaotic game where clues can be anywhere, and there's no specific order to follow.
 
 Both types of linked lists have their own advantages and are used in different situations in computer programming. And that's the essence of understanding linked lists!
 
