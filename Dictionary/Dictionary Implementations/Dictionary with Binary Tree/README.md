@@ -1,4 +1,6 @@
-# Binary Search Tree Implementation as Dictionary in Python, Java, and VB.NET
+# Binary Tree Implementation as Dictionary in Python, Java, and VB.NET
+
+### NB: For CAIE AL preparation `Dictionary with BT` should not be considered.
 
 ## Python
 
