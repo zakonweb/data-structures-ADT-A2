@@ -6,7 +6,7 @@ Dictionaries, also known as maps or associative arrays, are a fundamental data s
 
 A dictionary consists of a collection of **key-value pairs**. Each key in the dictionary is unique and associated with a corresponding value. The keys are used to index and retrieve the associated values. Dictionaries are often used to represent relationships, mappings, or lookup tables.
 
-![Dictionary Anatomy](https://i.imgur.com/PlDbkV2.png)
+![Dictionary Anatomy](https://cdn-wordpress-info.futurelearn.com/info/wp-content/uploads/FL-Prog103-2.3-Dictionary-768x317.png)
 
 ## Dictionary Operations
 
@@ -55,13 +55,9 @@ There are different ways to implement a dictionary. Two common implementations a
 
 In this implementation, a fixed-size array or a dynamic array is used to store the key-value pairs. The keys are used as indices to access the corresponding values in the array. This implementation provides fast lookup when the number of keys is relatively small.
 
-![Array-based Dictionary](https://i.imgur.com/74MTlXY.png)
-
 ### Tree-based Dictionary
 
 In this implementation, a self-balancing binary search tree (such as AVL tree or Red-Black tree) is used to store the key-value pairs. The keys are stored in a sorted order, allowing for efficient lookup, insertion, and deletion operations. This implementation provides balanced performance for a large number of keys.
-
-![Tree-based Dictionary](https://i.imgur.com/cVbcnYm.png)
 
 ## Summary
 
