@@ -6,6 +6,8 @@ Hash tables are a powerful data structure used to store and retrieve data effici
 
 A hash table consists of two main components: an array and a hash function.
 
+![natomy of a Hash Table](https://datastructures.maximal.io/img/hash-tables/hashing.png)
+
 ### Array
 
 The array is a collection of "buckets" or "slots" where data items are stored. Each bucket has a unique index or position within the array.
