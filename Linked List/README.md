@@ -18,6 +18,8 @@ class Node:
         self.next = next
 ```
 
+![Linked List](https://media.geeksforgeeks.org/wp-content/uploads/20220829110944/LLdrawio.png)
+
 ## Ordered and Unordered Linked Lists
 There are two main types of linked lists: ordered and unordered.
 
