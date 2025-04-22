@@ -126,14 +126,16 @@ PROCEDURE InsertNode(NewItem : INTEGER)
 
     // Check if empty tree
     IF BinaryTree[1].Data = NULL_POINTER THEN // Insert new node at root
-        BinaryTree[1] ← NewNodePtr
+        BinaryTree[1].Data ← NewItem
+        BinaryTree[1].Left ← NULL_POINTER
+        BinaryTree[1].Right ← NULL_POINTER    
     ELSE // Find insertion point
         // Store data item and set null pointers for the new node
         BinaryTree[NewNodePtr].Data ← NewItem
         BinaryTree[NewNodePtr].Left ← NULL_POINTER
         BinaryTree[NewNodePtr].Right ← NULL_POINTER
 
-        ThisNodePtr ← BinaryTree[1] // Start at the root of the tree
+        ThisNodePtr ← 1 // Start at the root of the tree
         WHILE ThisNodePtr <> NULL_POINTER DO // While not a leaf node
             PreviousNodePtr ← ThisNodePtr // Remember this node
             IF NewItem < BinaryTree[ThisNodePtr].Data THEN // Follow left pointer
